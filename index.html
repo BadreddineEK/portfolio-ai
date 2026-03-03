@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEK.ai — Loading model...</title>
+  <meta name="description" content="Portfolio de Badreddine EL KHAMLICHI — Data Scientist & Builder" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- BOOT SCREEN -->
+<div id="boot-screen">
+  <div class="boot-inner">
+    <div class="boot-logo">BEK<span class="cursor-blink">_</span></div>
+    <div class="boot-log" id="boot-log"></div>
+    <div class="boot-bar-wrap">
+      <div class="boot-bar" id="boot-bar"></div>
+    </div>
+    <div class="boot-status" id="boot-status">Initializing...</div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+
+  <!-- NEURAL CANVAS BACKGROUND -->
+  <canvas id="neural-bg"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <span class="nav-logo">BEK<span class="blink">.</span>ai</span>
+    <ul class="nav-links">
+      <li><a href="#model">model.py</a></li>
+      <li><a href="#training">training</a></li>
+      <li><a href="#dataset">dataset</a></li>
+      <li><a href="#weights">weights</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#deploy">deploy</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="status-text">model loaded</span>
+    </div>
+  </nav>
+
+  <!-- HERO — EPOCH 0 -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <span class="t-btn red"></span>
+          <span class="t-btn yellow"></span>
+          <span class="t-btn green"></span>
+          <span class="t-title">bek_model.py</span>
+        </div>
+        <div class="terminal-body" id="hero-terminal">
+          <div class="t-line"><span class="t-prompt">$</span> python train.py --model BEK --device cpu</div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="epoch-badge">
+          <span class="epoch-label">EPOCH</span>
+          <span class="epoch-num" id="epoch-counter">000</span>
+          <span class="epoch-slash">/</span>
+          <span class="epoch-total">∞</span>
+        </div>
+        <h1 class="hero-name">Badreddine<br><span class="accent">EL KHAMLICHI</span></h1>
+        <p class="hero-role">Data Scientist &nbsp;·&nbsp; Problem Solver &nbsp;·&nbsp; Builder</p>
+        <div class="loss-meter">
+          <div class="loss-row">
+            <span class="loss-label">confidence</span>
+            <div class="loss-bar-wrap"><div class="loss-bar" data-target="94" style="width:0%"></div></div>
+            <span class="loss-val">0.94</span>
+          </div>
+          <div class="loss-row">
+            <span class="loss-label">creativity</span>
+            <div class="loss-bar-wrap"><div class="loss-bar" data-target="91" style="width:0%"></div></div>
+            <span class="loss-val">0.91</span>
+          </div>
+          <div class="loss-row">
+            <span class="loss-label">impact</span>
+            <div class="loss-bar-wrap"><div class="loss-bar" data-target="88" style="width:0%"></div></div>
+            <span class="loss-val">0.88</span>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a href="#training" class="btn-primary">▶ run training()</a>
+          <a href="cv_placeholder.pdf" target="_blank" class="btn-ghost">⬇ model.weights</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: MODEL ARCHITECTURE / APPROCHE -->
+  <section id="model" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># model architecture</span>
+        <h2>Comment je <span class="accent">travaille</span></h2>
+      </div>
+      <div class="model-layout">
+        <div class="model-diagram">
+          <div class="nn-layer" data-label="INPUT">
+            <div class="nn-node">📊</div>
+            <div class="nn-node">🎯</div>
+            <div class="nn-node">💡</div>
+          </div>
+          <div class="nn-arrow">→</div>
+          <div class="nn-layer" data-label="HIDDEN">
+            <div class="nn-node active">⚙️</div>
+            <div class="nn-node active">🔍</div>
+            <div class="nn-node active">🛠</div>
+            <div class="nn-node active">📐</div>
+          </div>
+          <div class="nn-arrow">→</div>
+          <div class="nn-layer" data-label="OUTPUT">
+            <div class="nn-node pulse">🚀</div>
+          </div>
+        </div>
+        <div class="model-text">
+          <div class="code-block">
+            <div class="cb-line"><span class="kw">class</span> <span class="fn">BEK</span>(<span class="kw">nn.Module</span>):</div>
+            <div class="cb-line indent"><span class="kw">def</span> <span class="fn">forward</span>(self, problem):</div>
+            <div class="cb-line indent2"><span class="cm"># Je ne pars pas d'une techno.</span></div>
+            <div class="cb-line indent2"><span class="cm"># Je pars d'un problème.</span></div>
+            <div class="cb-line indent2">x = self.understand(problem)</div>
+            <div class="cb-line indent2">x = self.design(x)</div>
+            <div class="cb-line indent2">x = self.build(x)</div>
+            <div class="cb-line indent2"><span class="kw">return</span> x  <span class="cm"># real result, not a notebook</span></div>
+          </div>
+          <div class="model-cards">
+            <div class="model-card">
+              <span class="mc-icon">📦</span>
+              <div>
+                <h4>Du problème au livrable</h4>
+                <p>Dashboard qui tourne, pipeline qui s'exécute, app déployée. Pas juste un notebook.</p>
+              </div>
+            </div>
+            <div class="model-card">
+              <span class="mc-icon">🔧</span>
+              <div>
+                <h4>Construit hors des heures aussi</h4>
+                <p>GoldSignal, MManager, Garage Booking — idées perso, architecturées et livrées seul.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TRAINING RUNS / PROJETS -->
+  <section id="training" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># training runs</span>
+        <h2>Mes <span class="accent">Projets</span></h2>
+        <p class="section-sub">Applications déployées, outils data et produits construits pour résoudre de vrais problèmes.</p>
+      </div>
+
+      <div class="runs-grid">
+
+        <!-- GoldSignal -->
+        <div class="run-card featured">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_001</span>
+              <span class="run-badge active">⚡ Actif</span>
+            </div>
+            <h3>GoldSignal</h3>
+          </div>
+          <div class="run-metrics">
+            <div class="metric"><span class="m-label">models</span><span class="m-val">6</span></div>
+            <div class="metric"><span class="m-label">features</span><span class="m-val">40+</span></div>
+            <div class="metric"><span class="m-label">leakage</span><span class="m-val">0.00</span></div>
+          </div>
+          <p class="run-desc">App Streamlit multi-pages pour métaux précieux physiques. RF, XGBoost, LSTM, Stacking en walk-forward strict. Backtesting P&L (Sharpe), simulateur Monte-Carlo, PWA installable.</p>
+          <div class="run-tags">
+            <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">XGBoost</span><span class="tag">LSTM</span><span class="tag">PyTorch</span>
+          </div>
+          <div class="run-links">
+            <a href="https://goldsignaltime.streamlit.app/" target="_blank" class="link-live">🟢 App live</a>
+            <a href="https://github.com/BadreddineEK/goldSignal" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- MManager -->
+        <div class="run-card">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_002</span>
+              <span class="run-badge wip">🔄 En cours</span>
+            </div>
+            <h3>MManager</h3>
+          </div>
+          <div class="run-metrics">
+            <div class="metric"><span class="m-label">type</span><span class="m-val">SaaS</span></div>
+            <div class="metric"><span class="m-label">target</span><span class="m-val">assoc.</span></div>
+          </div>
+          <p class="run-desc">Micro-SaaS de gestion d'association : suivi budgétaire, donations, comptabilité générale. Conçu pour les associations musulmanes.</p>
+          <div class="run-tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">SaaS</span></div>
+          <div class="run-links">
+            <a href="https://github.com/BadreddineEK/MManager" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- Garage Booking -->
+        <div class="run-card">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_003</span>
+              <span class="run-badge deployed">✅ Déployé</span>
+            </div>
+            <h3>Garage Booking</h3>
+          </div>
+          <div class="run-metrics">
+            <div class="metric"><span class="m-label">env</span><span class="m-val">prod</span></div>
+            <div class="metric"><span class="m-label">host</span><span class="m-val">Vercel</span></div>
+          </div>
+          <p class="run-desc">App web de réservation de créneaux en garage automobile. Interface client + back-office, gestion des disponibilités.</p>
+          <div class="run-tags"><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
+          <div class="run-links">
+            <a href="https://garage-booking.vercel.app" target="_blank" class="link-live">🟢 App live</a>
+            <a href="https://github.com/BadreddineEK/garage_booking" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- Chatbot Portfolio -->
+        <div class="run-card">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_004</span>
+              <span class="run-badge deployed">✅ Déployé</span>
+            </div>
+            <h3>Chatbot Portfolio</h3>
+          </div>
+          <div class="run-metrics">
+            <div class="metric"><span class="m-label">type</span><span class="m-val">LLM</span></div>
+            <div class="metric"><span class="m-label">host</span><span class="m-val">Vercel</span></div>
+          </div>
+          <p class="run-desc">Chatbot IA intégré à un portfolio Next.js. Répond aux questions sur le profil et les projets via un LLM. TypeScript + API LLM.</p>
+          <div class="run-tags"><span class="tag">TypeScript</span><span class="tag">LLM</span><span class="tag">Next.js</span></div>
+          <div class="run-links">
+            <a href="https://chatbot-portfolio-eosin.vercel.app" target="_blank" class="link-live">🟢 App live</a>
+            <a href="https://github.com/BadreddineEK/chatbot-portfolio" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- Dashboards -->
+        <div class="run-card">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_005</span>
+              <span class="run-badge dataviz">📊 Data Viz</span>
+            </div>
+            <h3>Dashboards</h3>
+          </div>
+          <p class="run-desc">Collection de dashboards data viz sur mesure — exploration visuelle et reporting avancé pour différents contextes métier.</p>
+          <div class="run-tags"><span class="tag">Streamlit</span><span class="tag">Python</span><span class="tag">Plotly</span></div>
+          <div class="run-links">
+            <a href="https://github.com/BadreddineEK/Dashboards" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Academic runs -->
+      <div class="labs-header">
+        <span class="section-tag"># experimental_runs</span>
+        <p>Travaux & Explorations académiques</p>
+      </div>
+      <div class="runs-grid mini">
+        <div class="run-card lab">
+          <span class="run-id">exp_001</span>
+          <h4>Precipitation Prediction</h4>
+          <p>Classification ML de précipitations — RF, SVM, KNN, feature engineering, cross-validation.</p>
+          <div class="run-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">ML</span></div>
+          <a href="https://github.com/BadreddineEK/-PrecipitationPrediction-" target="_blank" class="link-gh">GitHub ↗</a>
+        </div>
+        <div class="run-card lab">
+          <span class="run-id">exp_002</span>
+          <h4>PokedexCNN</h4>
+          <p>CNN PyTorch pour classification Pokémon. Transfer learning, data augmentation.</p>
+          <div class="run-tags"><span class="tag">CNN</span><span class="tag">PyTorch</span><span class="tag">Deep Learning</span></div>
+          <a href="https://github.com/BadreddineEK/pokedexCNN" target="_blank" class="link-gh">GitHub ↗</a>
+        </div>
+        <div class="run-card lab">
+          <span class="run-id">exp_003</span>
+          <h4>Séries Temporelles UKgas</h4>
+          <p>ARIMA/SARIMA sur UKgas. Tests ADF/KPSS, prévisions, intervalles de confiance.</p>
+          <div class="run-tags"><span class="tag">R</span><span class="tag">ARIMA</span><span class="tag">Time Series</span></div>
+          <a href="https://github.com/BadreddineEK/Serie_Temporelles_UKgas" target="_blank" class="link-gh">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: DATASET / EXPERIENCES -->
+  <section id="dataset" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># dataset — training history</span>
+        <h2>Expériences <span class="accent">professionnelles</span></h2>
+      </div>
+
+      <div class="dataset-timeline">
+
+        <div class="ds-item active">
+          <div class="ds-connector">
+            <div class="ds-dot active"></div>
+            <div class="ds-line"></div>
+          </div>
+          <div class="ds-content">
+            <div class="ds-epoch">sample_001 — Apr.2025→now</div>
+            <div class="ds-header">
+              <h3>Data Scientist <span class="ds-company">@ Efor</span></h3>
+              <span class="ds-badge current">En poste</span>
+            </div>
+            <p class="ds-location">Mission client : Boehringer Ingelheim, Lyon LPA · CDI</p>
+            <div class="ds-log">
+              <div class="log-line"><span class="log-key">task_1:</span> Conception & livraison d'apps Streamlit sur mesure pour 3 dpts scientifiques</div>
+              <div class="log-line"><span class="log-key">task_2:</span> Automatisation de processus data → pipelines, standardisation, reporting auto</div>
+              <div class="log-line"><span class="log-key">task_3:</span> Pilotage projets data end-to-end — data / IT / scientifiques / France-Allemagne-US</div>
+            </div>
+            <div class="run-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Snowflake</span><span class="tag">Databricks</span><span class="tag">SQL</span><span class="tag">Git</span></div>
+          </div>
+        </div>
+
+        <div class="ds-item">
+          <div class="ds-connector">
+            <div class="ds-dot"></div>
+            <div class="ds-line"></div>
+          </div>
+          <div class="ds-content">
+            <div class="ds-epoch">sample_002 — Apr.2024→Sep.2024</div>
+            <div class="ds-header">
+              <h3>ML / Data Science Engineer <span class="ds-company">@ BIOASTER</span></h3>
+              <span class="ds-badge">Stage PFE</span>
+            </div>
+            <p class="ds-location">Lyon, France · Stage de fin d'études · Hybride</p>
+            <div class="ds-log">
+              <div class="log-line"><span class="log-key">arch:</span> 3 autoencodeurs (vanilla, denoising, sparsity) sur RNA-seq</div>
+              <div class="log-line"><span class="log-key">bench:</span> PCA vs UMAP vs t-SNE sur données biomédicales complexes</div>
+              <div class="log-line"><span class="log-key">method:</span> Agile/Scrum (Jira) — iterations rigoureuses</div>
+            </div>
+            <div class="run-tags"><span class="tag">PyTorch</span><span class="tag">Autoencodeurs</span><span class="tag">RNA-seq</span><span class="tag">UMAP</span><span class="tag">scikit-learn</span></div>
+          </div>
+        </div>
+
+        <div class="ds-item">
+          <div class="ds-connector">
+            <div class="ds-dot"></div>
+            <div class="ds-line"></div>
+          </div>
+          <div class="ds-content">
+            <div class="ds-epoch">sample_003 — Aug.2022→Jan.2023</div>
+            <div class="ds-header">
+              <h3>Data Scientist / Analyst <span class="ds-company">@ Aluminium du Maroc</span></h3>
+              <span class="ds-badge">Stage 4A</span>
+            </div>
+            <p class="ds-location">Tanger, Maroc · Stage industriel</p>
+            <div class="ds-log">
+              <div class="log-line"><span class="log-key">output_1:</span> Dashboard multi-dpts KPI pour managers & directeurs</div>
+              <div class="log-line"><span class="log-key">output_2:</span> Automatisation VBA/Excel → réduction traitement manuel</div>
+              <div class="log-line"><span class="log-key">output_3:</span> Rapports Power BI accessibles aux non-techniciens</div>
+            </div>
+            <div class="run-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">VBA</span><span class="tag">SQL</span></div>
+          </div>
+        </div>
+
+        <div class="ds-item">
+          <div class="ds-connector">
+            <div class="ds-dot"></div>
+          </div>
+          <div class="ds-content">
+            <div class="ds-epoch">sample_004 — 2019→2025</div>
+            <div class="ds-header">
+              <h3>Professeur particulier <span class="ds-company">— Maths & Sciences</span></h3>
+            </div>
+            <p class="ds-location">Tous niveaux jusqu'au Terminale · En parallèle des études</p>
+            <div class="ds-log">
+              <div class="log-line"><span class="log-key">skill:</span> Vulgarisation de notions complexes, pédagogie adaptative</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: WEIGHTS / FORMATION -->
+  <section id="weights" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># pretrained_weights</span>
+        <h2>Formation <span class="accent">académique</span></h2>
+      </div>
+      <div class="weights-grid">
+
+        <div class="weight-card">
+          <div class="weight-top">
+            <span class="weight-icon">🎓</span>
+            <div>
+              <span class="weight-date">2019 — 2024</span>
+              <h3>Diplôme d'Ingénieur</h3>
+              <p class="weight-school">Polytech Lyon — Université Claude Bernard</p>
+            </div>
+          </div>
+          <div class="weight-body">
+            <div class="param-line"><span class="p-key">specialisation:</span> Mathématiques Appliquées & Modélisation (MAM)</div>
+            <div class="param-line"><span class="p-key">award:</span> 🏆 Major de promotion (semestre stage 4A)</div>
+            <div class="param-line"><span class="p-key">projects:</span> ML classification, Deep Learning CNN, séries temporelles</div>
+            <div class="param-line"><span class="p-key">internships:</span> 2 × 6 mois (BIOASTER + Aluminium du Maroc)</div>
+          </div>
+          <div class="run-tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">C++</span><span class="tag">ML</span><span class="tag">Optimisation</span></div>
+        </div>
+
+        <div class="weight-card">
+          <div class="weight-top">
+            <span class="weight-icon">📊</span>
+            <div>
+              <span class="weight-date">2022 — 2024</span>
+              <h3>Master Maths en Action</h3>
+              <p class="weight-school">Université Claude Bernard Lyon 1 (UCBL1)</p>
+            </div>
+          </div>
+          <div class="weight-body">
+            <div class="param-line"><span class="p-key">type:</span> Double diplôme en parallèle de Polytech</div>
+            <div class="param-line"><span class="p-key">major:</span> Environnement & Changement Climatique</div>
+            <div class="param-line"><span class="p-key">focus:</span> Modélisation stochastique, proba avancées, data env.</div>
+          </div>
+          <div class="run-tags"><span class="tag">Stochastique</span><span class="tag">Probabilités</span><span class="tag">R</span></div>
+        </div>
+
+        <div class="weight-card">
+          <div class="weight-top">
+            <span class="weight-icon">💼</span>
+            <div>
+              <span class="weight-date">2022 — 2024</span>
+              <h3>Master MAE</h3>
+              <p class="weight-school">IAE Lyon — Université Jean Moulin</p>
+            </div>
+          </div>
+          <div class="weight-body">
+            <div class="param-line"><span class="p-key">type:</span> Triple diplôme — vision business + technique</div>
+            <div class="param-line"><span class="p-key">topics:</span> Management, stratégie, finance, gestion de projet</div>
+            <div class="param-line"><span class="p-key">thesis:</span> Le défi de la double gestion — Consultants en mission</div>
+          </div>
+          <div class="run-tags"><span class="tag">Management</span><span class="tag">Stratégie</span><span class="tag">Finance</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: ABOUT / PERSO -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># model.config — personal params</span>
+        <h2>En dehors du <span class="accent">code</span></h2>
+      </div>
+      <div class="about-layout">
+        <div class="about-config">
+          <div class="config-block">
+            <div class="cfg-line"><span class="cfg-key">name:</span> <span class="cfg-val">"Badreddine EL KHAMLICHI"</span></div>
+            <div class="cfg-line"><span class="cfg-key">age:</span> <span class="cfg-val">24</span></div>
+            <div class="cfg-line"><span class="cfg-key">location:</span> <span class="cfg-val">"Lyon, France 🇫🇷"</span></div>
+            <div class="cfg-line"><span class="cfg-key">role:</span> <span class="cfg-val">"Data Scientist @ Efor / Boehringer"</span></div>
+            <div class="cfg-line">&nbsp;</div>
+            <div class="cfg-line"><span class="cfg-key">hobbies:</span> [</div>
+            <div class="cfg-line indent"><span class="cfg-val">"Marathon 🏃 (PR: 3h43)"</span>,</div>
+            <div class="cfg-line indent"><span class="cfg-val">"Micro-SaaS builder 🛠"</span>,</div>
+            <div class="cfg-line indent"><span class="cfg-val">"Finance halal & investissement 📈"</span>,</div>
+            <div class="cfg-line indent"><span class="cfg-val">"Mémorisation Coran 📖"</span>,</div>
+            <div class="cfg-line indent"><span class="cfg-val">"Résoudre des problèmes qui dérangent 🎯"</span></div>
+            <div class="cfg-line">]</div>
+            <div class="cfg-line">&nbsp;</div>
+            <div class="cfg-line"><span class="cfg-key">philosophy:</span></div>
+            <div class="cfg-line indent"><span class="cfg-val">"Je ne pars pas d'une techno.</span></div>
+            <div class="cfg-line indent"><span class="cfg-val"> Je pars d'un problème."</span></div>
+          </div>
+        </div>
+        <div class="about-stats-grid">
+          <div class="stat-card" data-count="3" data-suffix="">
+            <div class="stat-num" id="stat-degrees">0</div>
+            <div class="stat-lbl">Diplômes obtenus</div>
+          </div>
+          <div class="stat-card" data-count="2" data-suffix="">
+            <div class="stat-num" id="stat-internships">0</div>
+            <div class="stat-lbl">Stages 6 mois</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3h43</div>
+            <div class="stat-lbl">Marathon PR 🏃</div>
+          </div>
+          <div class="stat-card" data-count="5" data-suffix="+">
+            <div class="stat-num" id="stat-apps">0</div>
+            <div class="stat-lbl">Apps déployées</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">∞</div>
+            <div class="stat-lbl">Curiosité restante</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0.00</div>
+            <div class="stat-lbl">Data leakage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: STACK / SKILLS -->
+  <section id="skills-section" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"># installed_packages</span>
+        <h2>Technologies <span class="accent">&amp; Outils</span></h2>
+      </div>
+      <div class="pip-grid">
+        <div class="pip-pkg"><span class="pip-icon">🐍</span><span class="pip-name">Python</span><span class="pip-ver">3.12</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🎈</span><span class="pip-name">Streamlit</span><span class="pip-ver">1.x</span></div>
+        <div class="pip-pkg"><span class="pip-icon">❄️</span><span class="pip-name">Snowflake</span><span class="pip-ver">latest</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🗄️</span><span class="pip-name">SQL</span><span class="pip-ver">*</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🧠</span><span class="pip-name">Machine Learning</span><span class="pip-ver">sklearn</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🤖</span><span class="pip-name">LLM / RAG</span><span class="pip-ver">GPT-4o</span></div>
+        <div class="pip-pkg"><span class="pip-icon">📊</span><span class="pip-name">Data Viz</span><span class="pip-ver">plotly</span></div>
+        <div class="pip-pkg"><span class="pip-icon">⚛️</span><span class="pip-name">React / Next.js</span><span class="pip-ver">15</span></div>
+        <div class="pip-pkg"><span class="pip-icon">📘</span><span class="pip-name">TypeScript</span><span class="pip-ver">5.x</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🐳</span><span class="pip-name">Docker</span><span class="pip-ver">latest</span></div>
+        <div class="pip-pkg"><span class="pip-icon">☁️</span><span class="pip-name">Vercel</span><span class="pip-ver">cloud</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🔥</span><span class="pip-name">PyTorch</span><span class="pip-ver">2.x</span></div>
+        <div class="pip-pkg"><span class="pip-icon">📈</span><span class="pip-name">R / Stats</span><span class="pip-ver">4.x</span></div>
+        <div class="pip-pkg"><span class="pip-icon">🔧</span><span class="pip-name">Git / GitHub</span><span class="pip-ver">main</span></div>
+        <div class="pip-pkg"><span class="pip-icon">📋</span><span class="pip-name">Excel / BI</span><span class="pip-ver">PowerBI</span></div>
+        <div class="pip-pkg"><span class="pip-icon">⚡</span><span class="pip-name">Databricks</span><span class="pip-ver">latest</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: DEPLOY / CONTACT -->
+  <section id="deploy" class="section">
+    <div class="container">
+      <div class="deploy-card">
+        <div class="deploy-terminal">
+          <div class="terminal-bar">
+            <span class="t-btn red"></span><span class="t-btn yellow"></span><span class="t-btn green"></span>
+            <span class="t-title">deploy.sh</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">$</span> git push origin main</div>
+            <div class="t-line success">✓ Pushed to production</div>
+            <div class="t-line">&nbsp;</div>
+            <div class="t-line"><span class="t-prompt">$</span> echo "Let's build something."</div>
+            <div class="t-line accent-line">Travaillons ensemble 🤝</div>
+            <div class="t-line">&nbsp;</div>
+            <div class="t-line comment"># Toujours ouvert à des collaborations,</div>
+            <div class="t-line comment"># missions freelance ou échanges data/code.</div>
+          </div>
+        </div>
+        <div class="deploy-links">
+          <a href="https://github.com/BadreddineEK" target="_blank" class="deploy-btn">
+            <span class="db-icon">🐙</span>
+            <div><span class="db-label">GitHub</span><span class="db-sub">BadreddineEK</span></div>
+          </a>
+          <a href="https://www.linkedin.com/in/badreddine-el-khamlichi/" target="_blank" class="deploy-btn">
+            <span class="db-icon">💼</span>
+            <div><span class="db-label">LinkedIn</span><span class="db-sub">badreddine-el-khamlichi</span></div>
+          </a>
+          <a href="mailto:elkhamlichi.badreddine@gmail.com" class="deploy-btn">
+            <span class="db-icon">📧</span>
+            <div><span class="db-label">Email</span><span class="db-sub">elkhamlichi.badreddine@gmail.com</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Badreddine EL KHAMLICHI</span>
+    <span class="footer-sep">·</span>
+    <span>Built with ♥ and a lot of Python</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-mono">loss: 0.0012 · acc: 0.9988</span>
+  </footer>
+
+</div><!-- #app -->
+
+<script src="script.js"></script>
+</body>
+</html>
