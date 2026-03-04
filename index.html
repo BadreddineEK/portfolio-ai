@@ -8,8 +8,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Version Switcher ── */
+    .version-switcher {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+    .version-switcher .vs-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.45);
+      text-align: right;
+      padding-right: 0.3rem;
+    }
+    .version-switcher a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: background 0.18s, border-color 0.18s, transform 0.18s;
+      white-space: nowrap;
+    }
+    .version-switcher a:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .version-switcher { bottom: 1.2rem; right: 1rem; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- ── VERSION SWITCHER ── -->
+<div class="version-switcher">
+  <span class="vs-label"># switch_portfolio</span>
+  <a href="https://badreddineek.github.io/portfolioBadreddine/" target="_blank" rel="noopener">
+    <span>📄</span>
+    <span>Version classique ↗</span>
+  </a>
+</div>
 
 <!-- BOOT SCREEN -->
 <div id="boot-screen">
@@ -143,7 +198,7 @@
               <span class="mc-icon">🔧</span>
               <div>
                 <h4>Construit hors des heures aussi</h4>
-                <p>GoldSignal, MManager, Garage Booking — idées perso, architecturées et livrées seul.</p>
+                <p>GoldSignal, MManager, Pharma KPI — idées perso, architecturées et livrées seul.</p>
               </div>
             </div>
           </div>
@@ -163,11 +218,35 @@
 
       <div class="runs-grid">
 
-        <!-- GoldSignal -->
+        <!-- Pharma KPI Platform -->
         <div class="run-card featured">
           <div class="run-header">
             <div class="run-meta">
               <span class="run-id">run_001</span>
+              <span class="run-badge deployed">✅ Déployé</span>
+            </div>
+            <h3>Pharma KPI Platform</h3>
+          </div>
+          <div class="run-metrics">
+            <div class="metric"><span class="m-label">pages</span><span class="m-val">4</span></div>
+            <div class="metric"><span class="m-label">db</span><span class="m-val">DuckDB</span></div>
+            <div class="metric"><span class="m-label">ci/cd</span><span class="m-val">✓</span></div>
+          </div>
+          <p class="run-desc">Plateforme data end-to-end de monitoring KPI manufacturing pour un réseau pharmaceutique multi-sites. Pipeline ETL + DuckDB + Streamlit 4 pages : Overview, Site Detail, Forecasting ML (OLS + intervalles 95%), Alerts. CI/CD GitHub Actions.</p>
+          <div class="run-tags">
+            <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">DuckDB</span><span class="tag">scikit-learn</span><span class="tag">Plotly</span><span class="tag">GitHub Actions</span>
+          </div>
+          <div class="run-links">
+            <a href="https://pharmakpi.streamlit.app/" target="_blank" class="link-live">🟢 App live</a>
+            <a href="https://github.com/BadreddineEK/pharma-kpi-platform" target="_blank" class="link-gh">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- GoldSignal -->
+        <div class="run-card">
+          <div class="run-header">
+            <div class="run-meta">
+              <span class="run-id">run_002</span>
               <span class="run-badge active">⚡ Actif</span>
             </div>
             <h3>GoldSignal</h3>
@@ -191,7 +270,7 @@
         <div class="run-card">
           <div class="run-header">
             <div class="run-meta">
-              <span class="run-id">run_002</span>
+              <span class="run-id">run_003</span>
               <span class="run-badge wip">🔄 En cours</span>
             </div>
             <h3>MManager</h3>
@@ -211,7 +290,7 @@
         <div class="run-card">
           <div class="run-header">
             <div class="run-meta">
-              <span class="run-id">run_003</span>
+              <span class="run-id">run_004</span>
               <span class="run-badge deployed">✅ Déployé</span>
             </div>
             <h3>Garage Booking</h3>
@@ -232,7 +311,7 @@
         <div class="run-card">
           <div class="run-header">
             <div class="run-meta">
-              <span class="run-id">run_004</span>
+              <span class="run-id">run_005</span>
               <span class="run-badge deployed">✅ Déployé</span>
             </div>
             <h3>Chatbot Portfolio</h3>
@@ -253,7 +332,7 @@
         <div class="run-card">
           <div class="run-header">
             <div class="run-meta">
-              <span class="run-id">run_005</span>
+              <span class="run-id">run_006</span>
               <span class="run-badge dataviz">📊 Data Viz</span>
             </div>
             <h3>Dashboards</h3>
@@ -319,7 +398,7 @@
               <h3>Data Scientist <span class="ds-company">@ Efor</span></h3>
               <span class="ds-badge current">En poste</span>
             </div>
-            <p class="ds-location">Mission client : Boehringer Ingelheim, Lyon LPA · CDI</p>
+            <p class="ds-location">Mission client · Lyon LPA · CDI</p>
             <div class="ds-log">
               <div class="log-line"><span class="log-key">task_1:</span> Conception & livraison d'apps Streamlit sur mesure pour 3 dpts scientifiques</div>
               <div class="log-line"><span class="log-key">task_2:</span> Automatisation de processus data → pipelines, standardisation, reporting auto</div>
@@ -469,7 +548,6 @@
             <div class="cfg-line"><span class="cfg-key">name:</span> <span class="cfg-val">"Badreddine EL KHAMLICHI"</span></div>
             <div class="cfg-line"><span class="cfg-key">age:</span> <span class="cfg-val">24</span></div>
             <div class="cfg-line"><span class="cfg-key">location:</span> <span class="cfg-val">"Lyon, France 🇫🇷"</span></div>
-            <div class="cfg-line"><span class="cfg-key">role:</span> <span class="cfg-val">"Data Scientist @ Efor / Boehringer"</span></div>
             <div class="cfg-line">&nbsp;</div>
             <div class="cfg-line"><span class="cfg-key">hobbies:</span> [</div>
             <div class="cfg-line indent"><span class="cfg-val">"Marathon 🏃 (PR: 3h43)"</span>,</div>
@@ -497,7 +575,7 @@
             <div class="stat-num">3h43</div>
             <div class="stat-lbl">Marathon PR 🏃</div>
           </div>
-          <div class="stat-card" data-count="5" data-suffix="+">
+          <div class="stat-card" data-count="7" data-suffix="+">
             <div class="stat-num" id="stat-apps">0</div>
             <div class="stat-lbl">Apps déployées</div>
           </div>
